@@ -1,0 +1,2 @@
+/Users/zyyt/Library/Developer/Xcode/DerivedData/CLPhotoBrower-hehnyqxwzywcuadublcbzqqhqkfz/Build/Products/Debug-iphonesimulator/CLPhotoBrower.app
+
