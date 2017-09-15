@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="12121" systemVersion="16G29" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12089"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" rowHeight="100" id="KGk-i7-Jjw" customClass="TestTableViewCell">
+            <rect key="frame" x="0.0" y="0.0" width="320" height="100"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
+                <rect key="frame" x="0.0" y="0.0" width="320" height="100"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Nej-Qq-DED">
+                        <rect key="frame" x="0.0" y="0.0" width="137" height="100"/>
+                    </imageView>
+                    <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="vJ0-tY-T95">
+                        <rect key="frame" x="0.0" y="0.0" width="137" height="100"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                    </imageView>
+                </subviews>
+                <constraints>
+                    <constraint firstItem="Nej-Qq-DED" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" id="8dJ-cU-F2U"/>
+                    <constraint firstAttribute="bottom" secondItem="Nej-Qq-DED" secondAttribute="bottom" id="9T8-ne-rBA"/>
+                    <constraint firstItem="Nej-Qq-DED" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" id="Yv1-Sp-gPd"/>
+                    <constraint firstAttribute="trailing" secondItem="Nej-Qq-DED" secondAttribute="trailing" constant="183" id="hfs-FO-rRJ"/>
+                </constraints>
+            </tableViewCellContentView>
+            <connections>
+                <outlet property="cellImageView" destination="vJ0-tY-T95" id="LRS-OB-pLx"/>
+            </connections>
+            <point key="canvasLocation" x="26" y="80"/>
+        </tableViewCell>
+    </objects>
+</document>

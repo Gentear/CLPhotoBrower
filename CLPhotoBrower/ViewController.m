@@ -5,10 +5,20 @@
 //  Created by zyyt on 16/5/23.
 //  Copyright © 2016年 zyyt. All rights reserved.
 //
+#define ScreenWidth [UIScreen mainScreen].bounds.size.width
+#define ScreenHeight [UIScreen mainScreen].bounds.size.height
+#define ScreenBounds [UIScreen mainScreen].bounds
+#define BarHeight 20
+#define NVHeight 44
+#define TBHeight 44
 
+#define BackgroundColor [UIColor colorWithRed:226.0/255.0 green:226.0/255.0 blue:226.0/255.0 alpha:1]
 #import "ViewController.h"
 #import "CLPhotoBrowser.h"
 #import "CLPhotoBrower/CLPhotoView.h"
+#import "UIImageView+WebCache.h"
+#import "TestTableViewCell.h"
+#import "UITableViewCell+CLTableViewCell.h"
 @interface ViewController ()<UITableViewDataSource,UITableViewDelegate,UIScrollViewDelegate>
 @property (strong,nonatomic) UITableView *tableView;
 /**
@@ -45,11 +55,17 @@
     self.navigationItem.leftBarButtonItem = self.editButtonItem;
     self.objects = [NSMutableArray array];
     
-    [self.objects addObject:@[@"1.gif", @"http://image.tianjimedia.com/uploadImages/upload/20150818/2z2qe0dqi5xgif.gif"]];
-    [self.objects addObject:@[@"2.gif", @"http://image.tianjimedia.com/uploadImages/upload/20150818/m2yoqll1by4gif.gif"]];
-    [self.objects addObject:@[@"3.gif", @"http://image.tianjimedia.com/uploadImages/upload/20150818/3qmnrrtlvqbgif.gif"]];
-    [self.objects addObject:@[@"4.gif", @"http://image.tianjimedia.com/uploadImages/upload/20150818/azgulan2yumgif.gif"]];
-    [self.objects addObject:@[@"5.gif", @"http://image.tianjimedia.com/uploadImages/upload/20150818/ajiowjxkc0wgif.gif"]];
+    [self.objects addObject:@[ @"http://upload-images.jianshu.io/upload_images/3923406-1c7556e8fe4e20fe.jpg", @"http://upload-images.jianshu.io/upload_images/3923406-1c7556e8fe4e20fe.jpg"]];
+    [self.objects addObject:@[@"http://upload-images.jianshu.io/upload_images/3459828-483ab1e7973134d4.jpg", @"http://upload-images.jianshu.io/upload_images/3459828-483ab1e7973134d4.jpg"]];
+    [self.objects addObject:@[ @"http://upload-images.jianshu.io/upload_images/635542-80c306bcfc8fa31f.jpg", @"http://upload-images.jianshu.io/upload_images/635542-80c306bcfc8fa31f.jpg"]];
+    [self.objects addObject:@[@"http://upload-images.jianshu.io/upload_images/7663825-1235c66ee07f9fe9.jpg" , @"http://upload-images.jianshu.io/upload_images/7663825-1235c66ee07f9fe9.jpg"]];
+    [self.objects addObject:@[ @"http://upload-images.jianshu.io/upload_images/3343569-5f53f1faca0c06ed", @"http://upload-images.jianshu.io/upload_images/3343569-5f53f1faca0c06ed"]];
+    [self.objects addObject:@[ @"http://upload-images.jianshu.io/upload_images/31282-6b5c65b452d044c0.jpeg", @"http://upload-images.jianshu.io/upload_images/31282-6b5c65b452d044c0.jpeg"]];
+    [self.objects addObject:@[@"http://upload-images.jianshu.io/upload_images/906620-4e58cc9263574cbb", @"http://upload-images.jianshu.io/upload_images/906620-4e58cc9263574cbb"]];
+    [self.objects addObject:@[ @"http://upload-images.jianshu.io/upload_images/1669869-f3cd7b65b67c3b6f.jpg", @"http://upload-images.jianshu.io/upload_images/1669869-f3cd7b65b67c3b6f.jpg"]];
+    [self.objects addObject:@[@"http://upload-images.jianshu.io/upload_images/1522393-de81b72a1f42be3f.jpg" , @"http://upload-images.jianshu.io/upload_images/1522393-de81b72a1f42be3f.jpg"]];
+    [self.objects addObject:@[ @"http://upload-images.jianshu.io/upload_images/2812050-22d99ac201ed960a.JPG", @"http://upload-images.jianshu.io/upload_images/2812050-22d99ac201ed960a.JPG"]];
+    [self.objects addObject:@[ @"http://upload-images.jianshu.io/upload_images/1896623-b99fc2cba183a854.jpg", @"http://upload-images.jianshu.io/upload_images/1896623-b99fc2cba183a854.jpg"]];
     UIBarButtonItem *addButton = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemAdd target:self action:@selector(insertNewObject:)];
     self.navigationItem.rightBarButtonItem = addButton;
 }
@@ -70,19 +86,31 @@
 - (void)insertNewObject:(id)sender {
 }
 
+/*
+    传值部分
+ */
 -(void) imageTapAction:(UITapGestureRecognizer *)tap
 {
     NSMutableArray * photoViews = [NSMutableArray array];
     NSMutableArray * photoItems = [NSMutableArray array];
+    NSMutableArray * photoPlaceItems = [NSMutableArray array];
 
     [self.objects enumerateObjectsUsingBlock:^(id _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
-        UITableViewCell *cell = [self.tableView cellForRowAtIndexPath:[NSIndexPath indexPathForRow:idx inSection:0]];
-        [photoViews addObject:cell.imageView];
+        TestTableViewCell *cell = [self.tableView cellForRowAtIndexPath:[NSIndexPath indexPathForRow:idx inSection:0]];
+        if (cell == nil) {
+            UIImageView *image = [[UIImageView alloc]initWithFrame:CGRectMake(ScreenWidth * 0.5, ScreenWidth * 0.5, 0, 0)];
+            [photoViews addObject:image];
+        }else{
+            [photoViews addObject:cell.cellImageView];
+        }
+        [photoPlaceItems addObject:obj[0]];
         [photoItems addObject:obj[1]];
     }];
     CLPhotoBrowser *photo = [CLPhotoBrowser PhotoBrowser];
     photo.tapViewArr = photoViews;
     photo.indexPhoto = tap.view.tag;
+    //占位图最好先设置
+    photo.PhotoPlaceArr = photoPlaceItems;
     photo.PhotoArr = photoItems;
     [photo show];
 }
@@ -92,6 +120,9 @@
     return 1;
 }
 
+- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
+    return 100;
+}
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
     return self.objects.count;
@@ -100,25 +131,16 @@
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     
+    TestTableViewCell *cell = [TestTableViewCell CL_cellWithNibTableView:tableView];
     
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"cell"];
-    if (cell == nil) {
-        
-        cell = [[UITableViewCell alloc]initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"cell"];
-        
-    }
     NSArray * object = self.objects[indexPath.row];
-    cell.textLabel.text = object[1];
-    cell.imageView.image = [UIImage imageNamed:object[0]];
-    cell.imageView.tag = indexPath.row + 1;
-    cell.imageView.userInteractionEnabled = YES;
-    
-    if (cell.imageView.gestureRecognizers.count) {
-        [cell.imageView removeGestureRecognizer:cell.imageView.gestureRecognizers.firstObject];
-    }
+    [cell.cellImageView sd_setImageWithURL:[NSURL URLWithString:object[0]]];
+//    cell.cellImageView.image = [UIImage imageNamed:object[0]];
+    cell.cellImageView.tag = indexPath.row + 1;
+    cell.cellImageView.userInteractionEnabled = YES;
     
     UITapGestureRecognizer * tap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(imageTapAction:)];
-    [cell.imageView addGestureRecognizer:tap];
+    [cell.cellImageView addGestureRecognizer:tap];
     
     return cell;
 }

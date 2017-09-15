@@ -7,7 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		F306F0131DEFB2950017E338 /* UIView+CLView.m in Sources */ = {isa = PBXBuildFile; fileRef = F306F0121DEFB2950017E338 /* UIView+CLView.m */; };
 		F306F0181DEFD38E0017E338 /* CLPhotoBrowser.m in Sources */ = {isa = PBXBuildFile; fileRef = F306F0171DEFD38E0017E338 /* CLPhotoBrowser.m */; };
 		F306F01B1DEFEC7A0017E338 /* UICollectionViewCell+CreatCell.m in Sources */ = {isa = PBXBuildFile; fileRef = F306F01A1DEFEC7A0017E338 /* UICollectionViewCell+CreatCell.m */; };
 		F306F01E1DEFECFD0017E338 /* CLPhotoView.m in Sources */ = {isa = PBXBuildFile; fileRef = F306F01D1DEFECFD0017E338 /* CLPhotoView.m */; };
@@ -35,16 +34,12 @@
 		F377D5CF1CF2F71D00F084F0 /* UIImageView+WebCache.m in Sources */ = {isa = PBXBuildFile; fileRef = F377D5BE1CF2F71D00F084F0 /* UIImageView+WebCache.m */; };
 		F377D5D01CF2F71D00F084F0 /* UIView+WebCacheOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = F377D5C01CF2F71D00F084F0 /* UIView+WebCacheOperation.m */; };
 		F377D5D31CF3006E00F084F0 /* CLProgressView.m in Sources */ = {isa = PBXBuildFile; fileRef = F377D5D21CF3006E00F084F0 /* CLProgressView.m */; };
-		F3EFD5CF1E1BA6DE0008F282 /* 1.gif in Resources */ = {isa = PBXBuildFile; fileRef = F3EFD5CA1E1BA6DE0008F282 /* 1.gif */; };
-		F3EFD5D01E1BA6DE0008F282 /* 2.gif in Resources */ = {isa = PBXBuildFile; fileRef = F3EFD5CB1E1BA6DE0008F282 /* 2.gif */; };
-		F3EFD5D11E1BA6DE0008F282 /* 3.gif in Resources */ = {isa = PBXBuildFile; fileRef = F3EFD5CC1E1BA6DE0008F282 /* 3.gif */; };
-		F3EFD5D21E1BA6DE0008F282 /* 4.gif in Resources */ = {isa = PBXBuildFile; fileRef = F3EFD5CD1E1BA6DE0008F282 /* 4.gif */; };
-		F3EFD5D31E1BA6DE0008F282 /* 5.gif in Resources */ = {isa = PBXBuildFile; fileRef = F3EFD5CE1E1BA6DE0008F282 /* 5.gif */; };
+		F3F832351F6A0FC200C9DB5B /* TestTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = F3F832331F6A0FC200C9DB5B /* TestTableViewCell.m */; };
+		F3F832361F6A0FC200C9DB5B /* TestTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = F3F832341F6A0FC200C9DB5B /* TestTableViewCell.xib */; };
+		F3F832391F6A10BF00C9DB5B /* UITableViewCell+CLTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = F3F832381F6A10BF00C9DB5B /* UITableViewCell+CLTableViewCell.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		F306F0111DEFB2950017E338 /* UIView+CLView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+CLView.h"; sourceTree = "<group>"; };
-		F306F0121DEFB2950017E338 /* UIView+CLView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+CLView.m"; sourceTree = "<group>"; };
 		F306F0161DEFD38E0017E338 /* CLPhotoBrowser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CLPhotoBrowser.h; sourceTree = "<group>"; };
 		F306F0171DEFD38E0017E338 /* CLPhotoBrowser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CLPhotoBrowser.m; sourceTree = "<group>"; };
 		F306F0191DEFEC7A0017E338 /* UICollectionViewCell+CreatCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UICollectionViewCell+CreatCell.h"; sourceTree = "<group>"; };
@@ -98,11 +93,11 @@
 		F377D5C01CF2F71D00F084F0 /* UIView+WebCacheOperation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+WebCacheOperation.m"; sourceTree = "<group>"; };
 		F377D5D11CF3006E00F084F0 /* CLProgressView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CLProgressView.h; sourceTree = "<group>"; };
 		F377D5D21CF3006E00F084F0 /* CLProgressView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CLProgressView.m; sourceTree = "<group>"; };
-		F3EFD5CA1E1BA6DE0008F282 /* 1.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = 1.gif; sourceTree = "<group>"; };
-		F3EFD5CB1E1BA6DE0008F282 /* 2.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = 2.gif; sourceTree = "<group>"; };
-		F3EFD5CC1E1BA6DE0008F282 /* 3.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = 3.gif; sourceTree = "<group>"; };
-		F3EFD5CD1E1BA6DE0008F282 /* 4.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = 4.gif; sourceTree = "<group>"; };
-		F3EFD5CE1E1BA6DE0008F282 /* 5.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = 5.gif; sourceTree = "<group>"; };
+		F3F832321F6A0FC200C9DB5B /* TestTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TestTableViewCell.h; sourceTree = "<group>"; };
+		F3F832331F6A0FC200C9DB5B /* TestTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TestTableViewCell.m; sourceTree = "<group>"; };
+		F3F832341F6A0FC200C9DB5B /* TestTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TestTableViewCell.xib; sourceTree = "<group>"; };
+		F3F832371F6A10BF00C9DB5B /* UITableViewCell+CLTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UITableViewCell+CLTableViewCell.h"; sourceTree = "<group>"; };
+		F3F832381F6A10BF00C9DB5B /* UITableViewCell+CLTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UITableViewCell+CLTableViewCell.m"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -135,13 +130,17 @@
 		F377D5831CF2EF8500F084F0 /* CLPhotoBrower */ = {
 			isa = PBXGroup;
 			children = (
-				F3EFD5C91E1BA6DE0008F282 /* Images */,
 				F377D59F1CF2F71D00F084F0 /* SDWebImage */,
 				F377D59B1CF2EFB800F084F0 /* CLPhotoBrower */,
 				F377D5871CF2EF8500F084F0 /* AppDelegate.h */,
 				F377D5881CF2EF8500F084F0 /* AppDelegate.m */,
 				F306F0261DF013A40017E338 /* ViewController.h */,
 				F306F0271DF013A40017E338 /* ViewController.m */,
+				F3F832321F6A0FC200C9DB5B /* TestTableViewCell.h */,
+				F3F832331F6A0FC200C9DB5B /* TestTableViewCell.m */,
+				F3F832341F6A0FC200C9DB5B /* TestTableViewCell.xib */,
+				F3F832371F6A10BF00C9DB5B /* UITableViewCell+CLTableViewCell.h */,
+				F3F832381F6A10BF00C9DB5B /* UITableViewCell+CLTableViewCell.m */,
 				F377D58D1CF2EF8500F084F0 /* Main.storyboard */,
 				F377D5901CF2EF8500F084F0 /* Assets.xcassets */,
 				F377D5921CF2EF8500F084F0 /* LaunchScreen.storyboard */,
@@ -164,8 +163,6 @@
 			children = (
 				F306F0191DEFEC7A0017E338 /* UICollectionViewCell+CreatCell.h */,
 				F306F01A1DEFEC7A0017E338 /* UICollectionViewCell+CreatCell.m */,
-				F306F0111DEFB2950017E338 /* UIView+CLView.h */,
-				F306F0121DEFB2950017E338 /* UIView+CLView.m */,
 				F306F01F1DEFF99D0017E338 /* CLPhotoFlowLayout.h */,
 				F306F0201DEFF99D0017E338 /* CLPhotoFlowLayout.m */,
 				F306F01C1DEFECFD0017E338 /* CLPhotoView.h */,
@@ -216,18 +213,6 @@
 				F377D5C01CF2F71D00F084F0 /* UIView+WebCacheOperation.m */,
 			);
 			path = SDWebImage;
-			sourceTree = "<group>";
-		};
-		F3EFD5C91E1BA6DE0008F282 /* Images */ = {
-			isa = PBXGroup;
-			children = (
-				F3EFD5CA1E1BA6DE0008F282 /* 1.gif */,
-				F3EFD5CB1E1BA6DE0008F282 /* 2.gif */,
-				F3EFD5CC1E1BA6DE0008F282 /* 3.gif */,
-				F3EFD5CD1E1BA6DE0008F282 /* 4.gif */,
-				F3EFD5CE1E1BA6DE0008F282 /* 5.gif */,
-			);
-			path = Images;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -290,11 +275,7 @@
 			files = (
 				F377D5941CF2EF8500F084F0 /* LaunchScreen.storyboard in Resources */,
 				F377D5911CF2EF8500F084F0 /* Assets.xcassets in Resources */,
-				F3EFD5D31E1BA6DE0008F282 /* 5.gif in Resources */,
-				F3EFD5D11E1BA6DE0008F282 /* 3.gif in Resources */,
-				F3EFD5D01E1BA6DE0008F282 /* 2.gif in Resources */,
-				F3EFD5D21E1BA6DE0008F282 /* 4.gif in Resources */,
-				F3EFD5CF1E1BA6DE0008F282 /* 1.gif in Resources */,
+				F3F832361F6A0FC200C9DB5B /* TestTableViewCell.xib in Resources */,
 				F377D58F1CF2EF8500F084F0 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -309,6 +290,7 @@
 				F377D5CE1CF2F71D00F084F0 /* UIImageView+HighlightedWebCache.m in Sources */,
 				F377D5CC1CF2F71D00F084F0 /* UIImage+MultiFormat.m in Sources */,
 				F377D5C71CF2F71D00F084F0 /* SDWebImageDownloaderOperation.m in Sources */,
+				F3F832351F6A0FC200C9DB5B /* TestTableViewCell.m in Sources */,
 				F306F0181DEFD38E0017E338 /* CLPhotoBrowser.m in Sources */,
 				F377D5D31CF3006E00F084F0 /* CLProgressView.m in Sources */,
 				F377D5C41CF2F71D00F084F0 /* SDWebImageCompat.m in Sources */,
@@ -316,9 +298,9 @@
 				F377D5C91CF2F71D00F084F0 /* SDWebImagePrefetcher.m in Sources */,
 				F377D5891CF2EF8500F084F0 /* AppDelegate.m in Sources */,
 				F306F02A1DF013A40017E338 /* ViewController.m in Sources */,
-				F306F0131DEFB2950017E338 /* UIView+CLView.m in Sources */,
 				F377D5CD1CF2F71D00F084F0 /* UIImage+WebP.m in Sources */,
 				F306F01E1DEFECFD0017E338 /* CLPhotoView.m in Sources */,
+				F3F832391F6A10BF00C9DB5B /* UITableViewCell+CLTableViewCell.m in Sources */,
 				F377D5CF1CF2F71D00F084F0 /* UIImageView+WebCache.m in Sources */,
 				F377D5C61CF2F71D00F084F0 /* SDWebImageDownloader.m in Sources */,
 				F377D5D01CF2F71D00F084F0 /* UIView+WebCacheOperation.m in Sources */,

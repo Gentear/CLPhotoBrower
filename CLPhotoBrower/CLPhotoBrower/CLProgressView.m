@@ -35,7 +35,6 @@
     }
     self.hidden = NO;
     if (progress == 1) {
-//        self.hidden = YES;
     }
 }
 - (CAShapeLayer *)shapeLayer{
@@ -43,11 +42,12 @@
         _shapeLayer = [[CAShapeLayer alloc]init];
         _shapeLayer.frame = CGRectMake(0, 0, 50, 50);
         _shapeLayer.position = self.center;
-        _shapeLayer.strokeColor = [UIColor lightGrayColor].CGColor;
+        _shapeLayer.strokeColor = [UIColor whiteColor].CGColor;
         _shapeLayer.fillColor = [UIColor clearColor].CGColor;
-        _shapeLayer.lineWidth = 5.0f;
+        _shapeLayer.lineWidth = 8.0f;
+        _shapeLayer.lineCap = kCALineCapRound;
         _shapeLayer.transform = CATransform3DMakeRotation(-M_PI * 0.5, 0, 0, 1);
-        UIBezierPath *bezier = [UIBezierPath bezierPathWithOvalInRect:CGRectMake(0, 0, 50, 50)];//画个圆
+        UIBezierPath *bezier = [UIBezierPath bezierPathWithOvalInRect:CGRectMake(0, 0, 40, 40)];//画个圆
         _shapeLayer.path = bezier.CGPath;
         [self.layer addSublayer:_shapeLayer];
         _shapeLayer.strokeStart = 0;

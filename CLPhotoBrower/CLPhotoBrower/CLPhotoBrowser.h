@@ -19,6 +19,8 @@
 
 /** 所有的imageView */
 @property (strong,nonatomic) NSMutableArray <UIImageView *> *tapViewArr;
+/** 所有的占位图 */
+@property (strong,nonatomic) NSMutableArray <NSString *> *PhotoPlaceArr;
 
 + (id)PhotoBrowser;
 

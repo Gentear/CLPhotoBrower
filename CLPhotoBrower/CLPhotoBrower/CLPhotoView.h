@@ -16,6 +16,7 @@
 
 @interface CLPhotoView : UICollectionViewCell
 @property (strong,nonatomic) NSString *imageUrl;
+@property (strong,nonatomic) NSString *placeImageUrl;
 @property (weak,nonatomic) UIImageView *imageView;
 @property (strong, nonatomic) id<CLPhotoViewDelegate>delegate;
 - (void)MoveToSuperview;

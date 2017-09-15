@@ -14,8 +14,7 @@
 #import "CLPhotoView.h"
 #import "UIImageView+WebCache.h"
 #import "CLProgressView.h"
-#import "UIView+CLView.h"
-@interface CLPhotoView()<UIScrollViewDelegate>
+@interface CLPhotoView()<UIScrollViewDelegate,UIGestureRecognizerDelegate>
 /**
  *  单击
  */
@@ -24,6 +23,10 @@
  *  双击
  */
 @property (strong,nonatomic) UITapGestureRecognizer *doubleTap;
+
+/** 缩放手势 */
+@property (assign,nonatomic) CGFloat offset;
+@property (strong,nonatomic) UIPanGestureRecognizer *zoomPan;
 @property (weak,nonatomic) UIScrollView *scrollView;
 @property (nonatomic, assign) BOOL hasLoadedImage;//图片下载成功为YES 否则为NO
 /**
@@ -34,6 +37,7 @@
  *  重新加载
  */
 @property (weak,nonatomic) UIButton *reloadButton;
+
 @end
 @implementation CLPhotoView
 #pragma mark - 懒加载
@@ -46,15 +50,16 @@
     }
     self.progressView.progress = 0;
     __weak typeof(self) weakSelf = self;
-    [self.imageView sd_setImageWithURL:[NSURL URLWithString:imageUrl] placeholderImage:[UIImage imageNamed:@""] options:SDWebImageCacheMemoryOnly progress:^(NSInteger receivedSize, NSInteger expectedSize) {
+    [self.imageView sd_cancelCurrentImageLoad];
+    [self.imageView sd_setImageWithURL:[NSURL URLWithString:imageUrl] placeholderImage:[UIImage imageNamed:_placeImageUrl] options:SDWebImageRetryFailed progress:^(NSInteger receivedSize, NSInteger expectedSize) {
         __strong typeof(self) strongSelf = weakSelf;
         strongSelf.progressView.progress = (float)receivedSize/(float)expectedSize ;
         NSLog(@"%f",strongSelf.progressView.progress);
         
     } completed:^(UIImage *image, NSError *error, SDImageCacheType cacheType, NSURL *imageURL) {
         __strong typeof(self) strongSelf = weakSelf;
-        [_progressView removeFromSuperview];
-        _progressView = nil;
+        [weakSelf.progressView removeFromSuperview];
+        weakSelf.progressView = nil;
         if (error != nil){
             [strongSelf reloadButton];
         }
@@ -122,6 +127,13 @@
     }
     return _doubleTap;
 }
+- (UIPanGestureRecognizer *)zoomPan{
+    if (!_zoomPan) {
+        _zoomPan = [[UIPanGestureRecognizer alloc]initWithTarget:self action:@selector(zooPan:)];
+        _zoomPan.delegate = self;
+    }
+    return _zoomPan;
+}
 - (CLProgressView *)progressView{
     if (_progressView == nil) {
         CLProgressView *progress = [CLProgressView progressView];
@@ -161,12 +173,53 @@
         [self.delegate hiddenWhenTouch];
     }
 }
+//滑动手势
+- (void)zooPan:(UIPanGestureRecognizer *)pan{
+     CGPoint transP = [pan translationInView:self];
+    if (pan.state == UIGestureRecognizerStateBegan) {
+
+    }
+    if (pan.state == UIGestureRecognizerStateChanged) {
+        // 获取手势的偏移量
+        self.offset = self.offset + transP.y;
+        self.imageView.center = CGPointMake(self.imageView.center.x + transP.x, self.imageView.center.y + transP.y);
+    
+        self.imageView.bounds = CGRectMake(0, 0, (ScreenHeight - fabs(self.offset))/ ScreenHeight   *  ScreenWidth, (ScreenHeight - fabs(self.offset))/ ScreenHeight   *  ScreenHeight) ;
+        self.superview.superview.alpha = (ScreenHeight - fabs(self.offset))/ ScreenHeight;
+    }
+    if (pan.state == UIGestureRecognizerStateEnded) {
+        if (fabs(self.offset) > ScreenWidth * 0.5) {
+            [self handleOneTap:self.oneTap];
+        }else{
+            [UIView animateWithDuration:0.2 animations:^{
+                self.imageView.frame = self.bounds;
+                self.superview.superview.alpha = 1;
+            }];
+        }
+    }
+    [pan setTranslation:CGPointZero inView:self];
+
+}
+/**
+ 手势冲突处理
+ */
+- (BOOL)gestureRecognizerShouldBegin:(UIGestureRecognizer *)gestureRecognizer{
+    if ([gestureRecognizer isKindOfClass:[UIPanGestureRecognizer class]]) {
+        UIPanGestureRecognizer *pan = (UIPanGestureRecognizer *)gestureRecognizer;
+        CGPoint translation = [pan translationInView:self];
+        if (fabs(translation.x) > fabs(translation.y)) {
+            return NO;
+        }
+    }
+    return YES;
+}
 #pragma mark - 添加到父视图上
 - (void)MoveToSuperview{
-    self.backgroundColor = [UIColor blackColor];
+    self.backgroundColor = [UIColor clearColor];
     [self scrollView];
     [self addGestureRecognizer:self.oneTap];
     [self addGestureRecognizer:self.doubleTap];
+    [self addGestureRecognizer:self.zoomPan];
 }
 #pragma mark - UIScrollViewDelegate
 #pragma mark 缩放
@@ -209,19 +262,6 @@
             imageFrame.size.height = imageFrame.size.height*ratio;
             imageFrame.size.width = frame.size.width;
         }
-//        else{
-//            if (frame.size.width <= frame.size.height) {
-//                
-//                CGFloat ratio = frame.size.width/imageFrame.size.width;
-//                imageFrame.size.height = imageFrame.size.height*ratio;
-//                imageFrame.size.width = frame.size.width;
-//            }else{
-//                CGFloat ratio = frame.size.height/imageFrame.size.height;
-//                imageFrame.size.width = imageFrame.size.width*ratio;
-//                imageFrame.size.height = frame.size.height;
-//            }
-//        }
-        
         self.imageView.frame = imageFrame;
         self.scrollView.contentSize = self.imageView.frame.size;
         self.imageView.center = [self centerOfScrollViewContent:self.scrollView];
