@@ -7,9 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		F306F0181DEFD38E0017E338 /* CLPhotoBrowser.m in Sources */ = {isa = PBXBuildFile; fileRef = F306F0171DEFD38E0017E338 /* CLPhotoBrowser.m */; };
-		F306F01B1DEFEC7A0017E338 /* UICollectionViewCell+CreatCell.m in Sources */ = {isa = PBXBuildFile; fileRef = F306F01A1DEFEC7A0017E338 /* UICollectionViewCell+CreatCell.m */; };
-		F306F01E1DEFECFD0017E338 /* CLPhotoView.m in Sources */ = {isa = PBXBuildFile; fileRef = F306F01D1DEFECFD0017E338 /* CLPhotoView.m */; };
+		F306F0181DEFD38E0017E338 /* CLBrowserView.m in Sources */ = {isa = PBXBuildFile; fileRef = F306F0171DEFD38E0017E338 /* CLBrowserView.m */; };
+		F306F01E1DEFECFD0017E338 /* CLPhotoViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = F306F01D1DEFECFD0017E338 /* CLPhotoViewCell.m */; };
 		F306F0211DEFF99D0017E338 /* CLPhotoFlowLayout.m in Sources */ = {isa = PBXBuildFile; fileRef = F306F0201DEFF99D0017E338 /* CLPhotoFlowLayout.m */; };
 		F306F02A1DF013A40017E338 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F306F0271DF013A40017E338 /* ViewController.m */; };
 		F377D5861CF2EF8500F084F0 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = F377D5851CF2EF8500F084F0 /* main.m */; };
@@ -40,12 +39,11 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		F306F0161DEFD38E0017E338 /* CLPhotoBrowser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CLPhotoBrowser.h; sourceTree = "<group>"; };
-		F306F0171DEFD38E0017E338 /* CLPhotoBrowser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CLPhotoBrowser.m; sourceTree = "<group>"; };
-		F306F0191DEFEC7A0017E338 /* UICollectionViewCell+CreatCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UICollectionViewCell+CreatCell.h"; sourceTree = "<group>"; };
-		F306F01A1DEFEC7A0017E338 /* UICollectionViewCell+CreatCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UICollectionViewCell+CreatCell.m"; sourceTree = "<group>"; };
-		F306F01C1DEFECFD0017E338 /* CLPhotoView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CLPhotoView.h; sourceTree = "<group>"; };
-		F306F01D1DEFECFD0017E338 /* CLPhotoView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CLPhotoView.m; sourceTree = "<group>"; };
+		3FA0F700211D365600010A2C /* CLImageBrower.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CLImageBrower.h; sourceTree = "<group>"; };
+		F306F0161DEFD38E0017E338 /* CLBrowserView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CLBrowserView.h; sourceTree = "<group>"; };
+		F306F0171DEFD38E0017E338 /* CLBrowserView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CLBrowserView.m; sourceTree = "<group>"; };
+		F306F01C1DEFECFD0017E338 /* CLPhotoViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CLPhotoViewCell.h; sourceTree = "<group>"; };
+		F306F01D1DEFECFD0017E338 /* CLPhotoViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CLPhotoViewCell.m; sourceTree = "<group>"; };
 		F306F01F1DEFF99D0017E338 /* CLPhotoFlowLayout.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CLPhotoFlowLayout.h; sourceTree = "<group>"; };
 		F306F0201DEFF99D0017E338 /* CLPhotoFlowLayout.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CLPhotoFlowLayout.m; sourceTree = "<group>"; };
 		F306F0261DF013A40017E338 /* ViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
@@ -161,16 +159,15 @@
 		F377D59B1CF2EFB800F084F0 /* CLPhotoBrower */ = {
 			isa = PBXGroup;
 			children = (
-				F306F0191DEFEC7A0017E338 /* UICollectionViewCell+CreatCell.h */,
-				F306F01A1DEFEC7A0017E338 /* UICollectionViewCell+CreatCell.m */,
 				F306F01F1DEFF99D0017E338 /* CLPhotoFlowLayout.h */,
 				F306F0201DEFF99D0017E338 /* CLPhotoFlowLayout.m */,
-				F306F01C1DEFECFD0017E338 /* CLPhotoView.h */,
-				F306F01D1DEFECFD0017E338 /* CLPhotoView.m */,
+				F306F01C1DEFECFD0017E338 /* CLPhotoViewCell.h */,
+				F306F01D1DEFECFD0017E338 /* CLPhotoViewCell.m */,
 				F377D5D11CF3006E00F084F0 /* CLProgressView.h */,
 				F377D5D21CF3006E00F084F0 /* CLProgressView.m */,
-				F306F0161DEFD38E0017E338 /* CLPhotoBrowser.h */,
-				F306F0171DEFD38E0017E338 /* CLPhotoBrowser.m */,
+				F306F0161DEFD38E0017E338 /* CLBrowserView.h */,
+				F306F0171DEFD38E0017E338 /* CLBrowserView.m */,
+				3FA0F700211D365600010A2C /* CLImageBrower.h */,
 			);
 			path = CLPhotoBrower;
 			sourceTree = "<group>";
@@ -246,7 +243,7 @@
 				TargetAttributes = {
 					F377D5801CF2EF8500F084F0 = {
 						CreatedOnToolsVersion = 7.1.1;
-						DevelopmentTeam = NHYD635NQV;
+						DevelopmentTeam = MXQYK37KH7;
 					};
 				};
 			};
@@ -291,7 +288,7 @@
 				F377D5CC1CF2F71D00F084F0 /* UIImage+MultiFormat.m in Sources */,
 				F377D5C71CF2F71D00F084F0 /* SDWebImageDownloaderOperation.m in Sources */,
 				F3F832351F6A0FC200C9DB5B /* TestTableViewCell.m in Sources */,
-				F306F0181DEFD38E0017E338 /* CLPhotoBrowser.m in Sources */,
+				F306F0181DEFD38E0017E338 /* CLBrowserView.m in Sources */,
 				F377D5D31CF3006E00F084F0 /* CLProgressView.m in Sources */,
 				F377D5C41CF2F71D00F084F0 /* SDWebImageCompat.m in Sources */,
 				F377D5CB1CF2F71D00F084F0 /* UIImage+GIF.m in Sources */,
@@ -299,7 +296,7 @@
 				F377D5891CF2EF8500F084F0 /* AppDelegate.m in Sources */,
 				F306F02A1DF013A40017E338 /* ViewController.m in Sources */,
 				F377D5CD1CF2F71D00F084F0 /* UIImage+WebP.m in Sources */,
-				F306F01E1DEFECFD0017E338 /* CLPhotoView.m in Sources */,
+				F306F01E1DEFECFD0017E338 /* CLPhotoViewCell.m in Sources */,
 				F3F832391F6A10BF00C9DB5B /* UITableViewCell+CLTableViewCell.m in Sources */,
 				F377D5CF1CF2F71D00F084F0 /* UIImageView+WebCache.m in Sources */,
 				F377D5C61CF2F71D00F084F0 /* SDWebImageDownloader.m in Sources */,
@@ -308,7 +305,6 @@
 				F377D5C11CF2F71D00F084F0 /* MKAnnotationView+WebCache.m in Sources */,
 				F377D5C21CF2F71D00F084F0 /* NSData+ImageContentType.m in Sources */,
 				F377D5861CF2EF8500F084F0 /* main.m in Sources */,
-				F306F01B1DEFEC7A0017E338 /* UICollectionViewCell+CreatCell.m in Sources */,
 				F377D5C81CF2F71D00F084F0 /* SDWebImageManager.m in Sources */,
 				F377D5C51CF2F71D00F084F0 /* SDWebImageDecoder.m in Sources */,
 				F377D5C31CF2F71D00F084F0 /* SDImageCache.m in Sources */,
@@ -426,11 +422,11 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				DEVELOPMENT_TEAM = NHYD635NQV;
+				DEVELOPMENT_TEAM = MXQYK37KH7;
 				INFOPLIST_FILE = CLPhotoBrower/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com..CLPhotoBrower;
+				PRODUCT_BUNDLE_IDENTIFIER = com.wenjing.CameraChang;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
 			name = Debug;
@@ -439,11 +435,11 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				DEVELOPMENT_TEAM = NHYD635NQV;
+				DEVELOPMENT_TEAM = MXQYK37KH7;
 				INFOPLIST_FILE = CLPhotoBrower/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com..CLPhotoBrower;
+				PRODUCT_BUNDLE_IDENTIFIER = com.wenjing.CameraChang;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
 			name = Release;

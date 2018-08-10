@@ -7,8 +7,7 @@
 //
 
 #import "CLPhotoFlowLayout.h"
-#define SCREEN_WIDTH [[UIScreen mainScreen] bounds].size.width
-#define SCREEN_HEIGHT [[UIScreen mainScreen] bounds].size.height
+#import "CLImageBrower.h"
 @interface CLPhotoFlowLayout ()
 
 //section的数量
@@ -36,7 +35,7 @@
  */
 - (CGSize)collectionViewContentSize{
     
-    return CGSizeMake((SCREEN_WIDTH + 20) * _numberOfCellsInSections,SCREEN_HEIGHT);
+    return CGSizeMake((kCLScreenWidth + kCLImageSpace) * _numberOfCellsInSections,kCLScreenHeight);
 }
 
 /**
@@ -69,11 +68,11 @@
     
     CGRect frame = CGRectZero;
     
-    CGFloat cellHeight = SCREEN_HEIGHT;
+    CGFloat cellHeight = kCLScreenHeight;
     
-    CGFloat cellWidth = SCREEN_WIDTH;
+    CGFloat cellWidth = kCLScreenWidth;
     
-    CGFloat tempX = (SCREEN_WIDTH + 20) * indexPath.row;
+    CGFloat tempX = (kCLScreenWidth + kCLImageSpace) * indexPath.row;
     
     CGFloat tempY = 0;
     

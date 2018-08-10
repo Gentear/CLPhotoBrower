@@ -14,8 +14,7 @@
 
 #define BackgroundColor [UIColor colorWithRed:226.0/255.0 green:226.0/255.0 blue:226.0/255.0 alpha:1]
 #import "ViewController.h"
-#import "CLPhotoBrowser.h"
-#import "CLPhotoBrower/CLPhotoView.h"
+#import "CLImageBrower.h"
 #import "UIImageView+WebCache.h"
 #import "TestTableViewCell.h"
 #import "UITableViewCell+CLTableViewCell.h"
@@ -41,7 +40,7 @@
 - (UITableView *)tableView{
     if (_tableView == nil) {
         
-        UITableView *tableView = [[UITableView alloc]initWithFrame:CGRectMake(0, 0, [UIScreen mainScreen].bounds.size.width, [UIScreen mainScreen].bounds.size.height) style:UITableViewStylePlain];
+        UITableView *tableView = [[UITableView alloc]initWithFrame:CGRectMake(0, 108, [UIScreen mainScreen].bounds.size.width, [UIScreen mainScreen].bounds.size.height) style:UITableViewStylePlain];
         tableView.delegate = self;
         tableView.dataSource = self;
         [self.view addSubview:tableView];
@@ -51,6 +50,9 @@
 }
 - (void)viewDidLoad {
     [super viewDidLoad];
+    if ([self respondsToSelector:@selector(automaticallyAdjustsScrollViewInsets)]) {
+        self.automaticallyAdjustsScrollViewInsets = NO;
+    }
     // Do any additional setup after loading the view, typically from a nib.
     self.navigationItem.leftBarButtonItem = self.editButtonItem;
     self.objects = [NSMutableArray array];
@@ -89,8 +91,7 @@
 /*
     传值部分
  */
--(void) imageTapAction:(UITapGestureRecognizer *)tap
-{
+-(void)imageTapAction:(UITapGestureRecognizer *)tap{
     NSMutableArray * photoViews = [NSMutableArray array];
     NSMutableArray * photoItems = [NSMutableArray array];
     NSMutableArray * photoPlaceItems = [NSMutableArray array];
@@ -106,12 +107,12 @@
         [photoPlaceItems addObject:obj[0]];
         [photoItems addObject:obj[1]];
     }];
-    CLPhotoBrowser *photo = [CLPhotoBrowser PhotoBrowser];
+    CLBrowserView *photo = [CLBrowserView PhotoBrowser];
     photo.tapViewArr = photoViews;
     photo.indexPhoto = tap.view.tag;
     //占位图最好先设置
     photo.PhotoPlaceArr = photoPlaceItems;
-    photo.PhotoArr = photoItems;
+    photo.photoUrlArr = photoItems;
     [photo show];
 }
 #pragma mark - Table View
